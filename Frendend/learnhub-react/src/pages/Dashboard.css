@@ -1,0 +1,182 @@
+/* =========================
+   DASHBOARD PAGE
+========================= */
+
+.dashboard_page {
+  min-height: 70vh;
+  padding: 60px 6%;
+  background-color: #f5f7ff;
+}
+
+.dashboard_container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.dashboard_header {
+  margin-bottom: 40px;
+}
+
+.dashboard_header h1 {
+  color: #1e293b;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.dashboard_header p {
+  color: #64748b;
+}
+
+/* Statistics */
+
+.dashboard_stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 45px;
+}
+
+.stat_card {
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stat_card h2 {
+  color: #4f46e5;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.stat_card p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Continue Learning */
+
+.recent_learning {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.recent_learning > h2 {
+  color: #1e293b;
+  margin-bottom: 25px;
+}
+
+.dashboard_course {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dashboard_course:last-child {
+  border-bottom: none;
+}
+
+.dashboard_course h3 {
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.dashboard_course p {
+  color: #64748b;
+  margin-bottom: 15px;
+}
+
+/* Progress */
+
+.dashboard_progress {
+  width: 400px;
+  max-width: 100%;
+
+  height: 8px;
+
+  background-color: #e2e8f0;
+
+  border-radius: 10px;
+  overflow: hidden;
+
+  margin-bottom: 8px;
+}
+
+.dashboard_progress_fill {
+  height: 100%;
+  background-color: #4f46e5;
+  border-radius: 10px;
+}
+
+.dashboard_course span {
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Continue Button */
+
+.dashboard_course button {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #4f46e5;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.dashboard_course button:hover {
+  background-color: #3730a3;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .dashboard_stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .dashboard_page {
+    padding: 40px 20px;
+  }
+
+  .dashboard_header h1 {
+    font-size: 28px;
+  }
+
+  .dashboard_stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard_course {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .dashboard_course button {
+    width: 100%;
+  }
+}

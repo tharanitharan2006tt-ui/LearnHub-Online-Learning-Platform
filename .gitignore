@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+venv/
+.venv/
+env/
+
+# Frontend dependencies and builds
+node_modules/
+dist/
+dist-ssr/
+
+# Local secrets and environment settings
+.env
+.env.*
+!.env.example
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

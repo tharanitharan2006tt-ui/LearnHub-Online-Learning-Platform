@@ -1,0 +1,190 @@
+/* =========================
+   COURSE DETAILS PAGE
+========================= */
+
+.course_details {
+  min-height: 70vh;
+  padding: 60px 6%;
+  background-color: #f5f7ff;
+}
+
+.course_details_container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 45px;
+
+  background-color: #ffffff;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   COURSE TITLE
+========================= */
+
+.course_details_container h1 {
+  text-align: center;
+  font-size: 38px;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.course_intro {
+  text-align: center;
+  color: #64748b;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   COURSE INFORMATION
+========================= */
+
+.course_info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 45px;
+}
+
+.course_info div {
+  padding: 20px;
+  background-color: #f8fafc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.course_info strong {
+  display: block;
+  color: #1e293b;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.course_info p {
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* =========================
+   WHAT YOU WILL LEARN
+========================= */
+
+.course_content {
+  margin-bottom: 40px;
+}
+
+.course_content h2 {
+  color: #1e293b;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.course_content ul {
+  padding-left: 25px;
+}
+
+.course_content li {
+  color: #475569;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* =========================
+   ENROLL BOX
+========================= */
+
+.enroll_box {
+  padding: 30px;
+  background-color: #eef2ff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.enroll_box h2 {
+  color: #1e293b;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.enroll_box span {
+  display: block;
+  color: #4f46e5;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.enroll_box button {
+  padding: 12px 30px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #4f46e5;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enroll_box button:hover {
+  background-color: #3730a3;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+  .course_info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .course_details {
+    padding: 40px 20px;
+  }
+
+  .course_details_container {
+    padding: 25px;
+  }
+
+  .course_details_container h1 {
+    font-size: 30px;
+  }
+
+  .course_intro {
+    font-size: 15px;
+  }
+
+  .course_info {
+    grid-template-columns: 1fr;
+  }
+
+  .course_content h2 {
+    font-size: 23px;
+  }
+
+  .course_content li {
+    font-size: 15px;
+  }
+
+  .enroll_box {
+    padding: 25px;
+  }
+}
