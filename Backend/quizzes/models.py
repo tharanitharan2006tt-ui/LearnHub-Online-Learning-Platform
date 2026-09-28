@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+
 from courses.models import Course
 from lessons.models import Lesson
 
@@ -41,3 +43,22 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class QuizAttempt(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="quiz_attempts"
+    )
+    quiz = models.ForeignKey(
+        Quiz,
+        on_delete=models.CASCADE,
+        related_name="attempts"
+    )
+    score = models.PositiveIntegerField(default=0)
+    passed = models.BooleanField(default=False)
+    completed_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.email} - {self.quiz.title}"
