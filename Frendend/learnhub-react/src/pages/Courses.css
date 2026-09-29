@@ -20,6 +20,53 @@
   margin-bottom: 45px;
 }
 
+.courses_search {
+  width: min(100%, 560px);
+  margin: 0 auto 28px;
+}
+
+.courses_search label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.courses_search input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background: #fff;
+  color: #0f172a;
+  font: inherit;
+}
+
+.courses_search input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.13);
+}
+
+.courses_status,
+.courses_error {
+  width: min(100%, 1100px);
+  margin: 0 auto 24px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #fff;
+  color: #64748b;
+  text-align: center;
+}
+
+.courses_error {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
 /* Course Container */
 
 .courses_container {

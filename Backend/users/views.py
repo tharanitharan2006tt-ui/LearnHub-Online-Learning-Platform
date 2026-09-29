@@ -1,7 +1,7 @@
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from .serializers import RegisterSerializer, LoginSerializer
+from .serializers import RegisterSerializer, LoginSerializer, ProfileSerializer
 
 
 class RegisterView(generics.CreateAPIView):
@@ -51,16 +51,13 @@ class LoginView(generics.GenericAPIView):
         )
 
 
-class ProfileView(generics.RetrieveAPIView):
+class ProfileView(generics.RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = ProfileSerializer
+
+    def get_object(self):
+        return self.request.user
 
     def retrieve(self, request, *args, **kwargs):
-        user = request.user
-        return Response(
-            {
-                "id": user.id,
-                "email": user.email,
-                "full_name": user.profile.full_name
-            },
-            status=status.HTTP_200_OK
-        )
+        serializer = self.get_serializer(self.get_object())
+        return Response(serializer.data, status=status.HTTP_200_OK)

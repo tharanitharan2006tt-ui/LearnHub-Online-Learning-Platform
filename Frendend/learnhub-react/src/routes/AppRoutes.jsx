@@ -18,82 +18,19 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/courses" element={<Courses />} />
-      <Route
-        path="/course-details/:courseId"
-        element={<CourseDetails />}
-      />
-
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        }
-      />
-
-      <Route
-        path="/register"
-        element={
-          <PublicRoute>
-            <Register />
-          </PublicRoute>
-        }
-      />
-
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/profile"
-        element={
-          <ProtectedRoute>
-            <Profile />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/my-learning"
-        element={
-          <ProtectedRoute>
-            <MyLearning />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/lesson"
-        element={
-          <ProtectedRoute>
-            <Lesson />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/quiz"
-        element={
-          <ProtectedRoute>
-            <Quiz />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/certificate"
-        element={
-          <ProtectedRoute>
-            <Certificate />
-          </ProtectedRoute>
-        }
-      />
+      <Route path="/courses/:courseId" element={<CourseDetails />} />
+      <Route path="/course-details/:courseId" element={<CourseDetails />} />
+      <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+      <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+      <Route path="/my-learning" element={<ProtectedRoute><MyLearning /></ProtectedRoute>} />
+      <Route path="/lesson/:courseSlug/:lessonId" element={<ProtectedRoute><Lesson /></ProtectedRoute>} />
+      <Route path="/lesson" element={<ProtectedRoute><Lesson /></ProtectedRoute>} />
+      <Route path="/quiz/:quizId" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
+      <Route path="/quiz" element={<ProtectedRoute><Quiz /></ProtectedRoute>} />
+      <Route path="/certificate/:courseId" element={<ProtectedRoute><Certificate /></ProtectedRoute>} />
+      <Route path="/certificate" element={<ProtectedRoute><Certificate /></ProtectedRoute>} />
     </Routes>
   );
 }

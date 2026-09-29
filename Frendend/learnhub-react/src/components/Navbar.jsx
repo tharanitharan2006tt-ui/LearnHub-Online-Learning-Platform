@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { clearAuthSession } from "../services/api";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -7,8 +8,8 @@ export default function Navbar() {
   const { isLoggedIn, logout } = useAuth();
 
   const handleLogout = () => {
+    clearAuthSession();
     logout();
-    alert("Logged out successfully!");
     navigate("/login");
   };
 
@@ -24,16 +25,10 @@ export default function Navbar() {
 
         {isLoggedIn ? (
           <>
-            <Link to="/dashboard">Dashboard</Link>
             <Link to="/my-learning">My Learning</Link>
+            <Link to="/dashboard">Dashboard</Link>
             <Link to="/profile">Profile</Link>
-            <button
-              type="button"
-              className="logout_button"
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
+            <button type="button" className="logout_button" onClick={handleLogout}>Logout</button>
           </>
         ) : (
           <>

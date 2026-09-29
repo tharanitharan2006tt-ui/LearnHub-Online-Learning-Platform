@@ -107,9 +107,24 @@
 /* Completed Button */
 
 .complete_button:disabled {
-  background-color: #16a34a;
+  opacity: 0.75;
   cursor: default;
   transform: none;
+}
+
+.complete_button.is_completed:disabled {
+  background-color: #16a34a;
+}
+
+.progress_error {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 /* Completed Message */

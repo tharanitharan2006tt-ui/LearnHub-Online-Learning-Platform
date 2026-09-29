@@ -78,3 +78,26 @@ class LoginSerializer(serializers.Serializer):
             'access': str(refresh.access_token),
             'refresh': str(refresh)
         }
+
+
+class ProfileSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    email = serializers.EmailField()
+    full_name = serializers.CharField(source='profile.full_name', max_length=150)
+
+    def update(self, instance, validated_data):
+        email = validated_data['email']
+        other_users = User.objects.exclude(pk=instance.pk)
+        if other_users.filter(email=email).exists() or other_users.filter(username=email).exists():
+            raise serializers.ValidationError({
+                'email': 'An account with this email already exists.'
+            })
+
+        instance.email = email
+        instance.username = email
+        instance.save(update_fields=['email', 'username'])
+
+        profile = instance.profile
+        profile.full_name = validated_data['profile']['full_name']
+        profile.save(update_fields=['full_name'])
+        return instance

@@ -30,12 +30,14 @@ class QuizSerializer(serializers.ModelSerializer):
         many=True,
         read_only=True
     )
+    course_id = serializers.IntegerField(source='lesson.course_id', read_only=True)
 
     class Meta:
         model = Quiz
         fields = [
             'id',
             'lesson',
+            'course_id',
             'title',
             'passing_score',
             'created_at',

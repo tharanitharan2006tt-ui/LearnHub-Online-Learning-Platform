@@ -141,6 +141,18 @@
   transform: translateY(-2px);
 }
 
+.enroll_box button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.course_error {
+  margin-bottom: 14px;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
 /* =========================
    TABLET
 ========================= */

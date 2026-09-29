@@ -1,24 +1,57 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import CourseCard from "../components/CourseCard";
+import { api } from "../services/api";
 import "./Home.css";
 
 export default function Home() {
+  const [courses, setCourses] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let isActive = true;
+    api.getCourses()
+      .then((results) => {
+        if (isActive) {
+          setCourses((Array.isArray(results) ? results : results?.results || []).slice(0, 3));
+          setError("");
+        }
+      })
+      .catch((requestError) => {
+        if (isActive) setError(requestError.message || "Unable to load popular courses.");
+      });
+    return () => {
+      isActive = false;
+    };
+  }, []);
+
   return (
-    <main>
+    <div className="home_page">
       <section className="hero">
         <div className="hero_content">
           <h1>Learn New Skills with LearnHub</h1>
           <p>Discover quality online courses and improve your skills anytime, anywhere.</p>
-          <button className="hero_button">Explore Courses</button>
+          <Link to="/courses" className="hero_button">Explore Courses</Link>
         </div>
       </section>
       <section className="popular_courses">
         <h2>Popular Courses</h2>
         <p>Start learning from our most popular courses.</p>
+        {error && <p className="home_courses_error" role="alert">{error}</p>}
         <div className="course_container">
-          <div className="course_card"><h3>Python Programming</h3><p>Learn Python programming from basics to advanced concepts.</p><button>View Course</button></div>
-          <div className="course_card"><h3>Web Development</h3><p>Learn HTML, CSS and JavaScript to build modern websites.</p><button>View Course</button></div>
-          <div className="course_card"><h3>React Development</h3><p>Build modern and interactive web applications using React.</p><button>View Course</button></div>
+          {courses.map((course) => (
+            <CourseCard
+              key={course.id}
+              slug={course.slug}
+              title={course.title}
+              description={course.description || course.intro}
+              price={course.price}
+            />
+          ))}
+          {!error && courses.length === 0 && <p className="home_courses_empty">Courses will be available soon.</p>}
         </div>
+        <Link to="/courses" className="home_all_courses">Browse all courses <span aria-hidden="true">→</span></Link>
       </section>
-    </main>
+    </div>
   );
 }
