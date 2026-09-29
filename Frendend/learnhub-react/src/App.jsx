@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot";
 import Navbar from "./components/Navbar";
 import AppRoutes from "./routes/AppRoutes";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 
 function AppShell() {
   const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     const handleAuthError = (event) => {
@@ -27,6 +29,7 @@ function AppShell() {
         <AppRoutes />
       </main>
       <Footer />
+      {isLoggedIn && <Chatbot />}
     </>
   );
 }

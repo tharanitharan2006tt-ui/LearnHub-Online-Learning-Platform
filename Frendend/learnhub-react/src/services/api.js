@@ -146,6 +146,11 @@ export const api = {
     request(`/certificates/generate/${courseId}/`, {
       method: "POST",
     }),
+  sendChatMessage: (message) =>
+    request("/chatbot/", {
+      method: "POST",
+      body: { message },
+    }),
 };
 
 export default API_BASE_URL;

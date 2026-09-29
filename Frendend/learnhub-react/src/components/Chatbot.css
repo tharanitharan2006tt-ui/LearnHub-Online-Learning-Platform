@@ -1,0 +1,201 @@
+.learnhub_chatbot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1200;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.learnhub_chatbot_launcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  height: 56px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 28px;
+  background: #4f46e5;
+  box-shadow: 0 8px 24px rgba(30, 41, 59, 0.22);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.learnhub_chatbot_launcher:hover,
+.learnhub_chatbot_form button:hover:not(:disabled) {
+  background: #3730a3;
+}
+
+.learnhub_chatbot_panel {
+  position: absolute;
+  right: 0;
+  bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100vw - 32px));
+  height: min(560px, calc(100vh - 120px));
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(30, 41, 59, 0.2);
+}
+
+.learnhub_chatbot_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.learnhub_chatbot_header strong,
+.learnhub_chatbot_header span {
+  display: block;
+}
+
+.learnhub_chatbot_header strong {
+  font-size: 16px;
+}
+
+.learnhub_chatbot_header span {
+  margin-top: 4px;
+  color: #e0e7ff;
+  font-size: 12px;
+}
+
+.learnhub_chatbot_close {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.learnhub_chatbot_close:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.learnhub_chatbot_messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding: 18px 14px;
+  background: #f8fafc;
+}
+
+.learnhub_chatbot_message {
+  max-width: 88%;
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 14px;
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.learnhub_chatbot_message.is_assistant {
+  align-self: flex-start;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 4px;
+  background: #fff;
+}
+
+.learnhub_chatbot_message.is_user {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.learnhub_chatbot_loading {
+  align-self: flex-start;
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.learnhub_chatbot_error {
+  margin: 0;
+  padding: 10px 14px;
+  border-top: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.learnhub_chatbot_form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.learnhub_chatbot_form input {
+  min-width: 0;
+  flex: 1;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.learnhub_chatbot_form input:focus {
+  border-color: #6366f1;
+  outline: 3px solid rgba(79, 70, 229, 0.16);
+}
+
+.learnhub_chatbot_form button {
+  padding: 0 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.learnhub_chatbot_form button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.learnhub_chatbot_sr_only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 600px) {
+  .learnhub_chatbot {
+    right: 12px;
+    bottom: 16px;
+  }
+
+  .learnhub_chatbot_panel {
+    position: fixed;
+    right: 12px;
+    bottom: 84px;
+    width: calc(100vw - 24px);
+    height: min(560px, calc(100dvh - 108px));
+  }
+}

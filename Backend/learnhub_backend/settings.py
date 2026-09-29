@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "progress",
     "quizzes",
     "certificates",
+    "chatbot",
 ]
 
 

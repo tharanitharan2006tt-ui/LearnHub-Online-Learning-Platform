@@ -10,4 +10,5 @@ urlpatterns = [
     path('api/progress/', include('progress.urls')),
     path('api/quizzes/', include('quizzes.urls')),
     path('api/certificates/', include('certificates.urls')),
+    path('api/chatbot/', include('chatbot.urls')),
 ]
