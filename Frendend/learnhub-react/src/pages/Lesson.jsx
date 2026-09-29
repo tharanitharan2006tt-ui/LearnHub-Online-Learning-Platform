@@ -3,10 +3,48 @@ import { Link, useParams } from "react-router-dom";
 import { api } from "../services/api";
 import "./Lesson.css";
 
-const getEmbedUrl = (url) => {
-  if (!url) return "";
-  const youtubeId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&?/]+)/)?.[1];
-  return youtubeId ? `https://www.youtube.com/embed/${youtubeId}` : url;
+const getVideoSource = (value) => {
+  if (typeof value !== "string" || !value.trim()) {
+    return { type: "unavailable" };
+  }
+
+  try {
+    const url = new URL(value.trim());
+    if (!["http:", "https:"].includes(url.protocol)) {
+      return { type: "unavailable" };
+    }
+
+    const host = url.hostname.toLowerCase();
+    const isYouTubeHost = [
+      "youtube.com",
+      "www.youtube.com",
+      "m.youtube.com",
+      "youtu.be",
+    ].includes(host);
+
+    if (isYouTubeHost) {
+      const segments = url.pathname.split("/").filter(Boolean);
+      const videoId = host === "youtu.be"
+        ? segments[0]
+        : url.pathname === "/watch"
+          ? url.searchParams.get("v")
+          : ["embed", "shorts", "live"].includes(segments[0])
+            ? segments[1]
+            : null;
+
+      return videoId && /^[\w-]{11}$/.test(videoId)
+        ? { type: "youtube", url: `https://www.youtube.com/embed/${videoId}` }
+        : { type: "unavailable" };
+    }
+
+    if (/\.(mp4|webm|ogv|ogg)$/i.test(url.pathname)) {
+      return { type: "file", url: url.href };
+    }
+  } catch {
+    return { type: "unavailable" };
+  }
+
+  return { type: "unavailable" };
 };
 
 export default function Lesson() {
@@ -95,7 +133,7 @@ export default function Lesson() {
     );
   }
 
-  const videoUrl = getEmbedUrl(lesson.video_url);
+  const videoSource = getVideoSource(lesson.video_url);
 
   return (
     <section className="lesson_page">
@@ -105,19 +143,23 @@ export default function Lesson() {
           <p>{lesson.course_title || "Course lesson"} · Lesson {lesson.order}</p>
         </div>
 
-        {videoUrl && (
-          <div className="video_box">
+        <div className={`video_box${videoSource.type === "unavailable" ? " video_unavailable" : ""}`}>
+          {videoSource.type === "youtube" ? (
             <iframe
-              width="100%"
-              height="450"
-              src={videoUrl}
+              src={videoSource.url}
               title={lesson.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
-          </div>
-        )}
+          ) : videoSource.type === "file" ? (
+            <video src={videoSource.url} controls playsInline preload="metadata">
+              Your browser does not support this video.
+            </video>
+          ) : (
+            <p role="status">Video not available</p>
+          )}
+        </div>
 
         <div className="lesson_content">
           <h2>{lesson.title}</h2>
