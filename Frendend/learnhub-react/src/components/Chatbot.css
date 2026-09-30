@@ -10,9 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 60px;
+  width: 56px;
   height: 56px;
-  padding: 0 18px;
+  padding: 0;
   border: 0;
   border-radius: 28px;
   background: #4f46e5;
@@ -21,6 +21,12 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.learnhub_chatbot_cat_logo {
+  display: block;
+  width: 30px;
+  height: 30px;
 }
 
 .learnhub_chatbot_launcher:hover,
@@ -50,6 +56,28 @@
   padding: 16px 18px;
   background: #4f46e5;
   color: #fff;
+}
+
+.learnhub_chatbot_brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.learnhub_chatbot_avatar {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.learnhub_chatbot_avatar .learnhub_chatbot_cat_logo {
+  width: 28px;
+  height: 28px;
 }
 
 .learnhub_chatbot_header strong,

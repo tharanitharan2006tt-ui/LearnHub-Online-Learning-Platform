@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
@@ -9,7 +9,9 @@ import { AuthProvider, useAuth } from "./context/AuthContext";
 
 function AppShell() {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const { isLoggedIn } = useAuth();
+  const isQuizPage = /^\/quiz(?:\/|$)/.test(pathname);
 
   useEffect(() => {
     const handleAuthError = (event) => {
@@ -29,7 +31,7 @@ function AppShell() {
         <AppRoutes />
       </main>
       <Footer />
-      {isLoggedIn && <Chatbot />}
+      {isLoggedIn && !isQuizPage && <Chatbot />}
     </>
   );
 }
