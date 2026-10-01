@@ -86,6 +86,28 @@
   box-shadow: 0 8px 18px rgba(79, 70, 229, 0.2);
 }
 
+.dashboard_button.secondary_button {
+  margin-top: 0;
+  border: 1px solid #dfe4ff;
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.continue_notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid #f8d3b4;
+  border-radius: 12px;
+  background: #fffaf2;
+  color: #9a5b00;
+}
+
+.continue_notice p {
+  margin: 0 0 14px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
 .dashboard_explore_button span,
 .dashboard_button span,
 .dashboard_view_all span {
