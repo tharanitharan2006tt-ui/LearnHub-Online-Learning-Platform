@@ -111,7 +111,12 @@ export default function MyLearning() {
                     Continue Learning <span aria-hidden="true">→</span>
                   </Link>
                 ) : (
-                  <p className="learning_error">Lessons are not available for this course yet.</p>
+                  <div className="course_notice">
+                    <p>Lessons for this course are not available yet. Check back soon or explore another course.</p>
+                    <Link to="/courses" className="continue_button secondary_button">
+                      Explore Courses <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
                 )}
               </article>
             ))}

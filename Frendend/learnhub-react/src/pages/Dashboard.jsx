@@ -156,7 +156,10 @@ export default function Dashboard() {
               ) : course.nextLessonId ? (
                 <Link to={`/lesson/${course.slug}/${course.nextLessonId}`} className="dashboard_button">Continue learning <span aria-hidden="true">→</span></Link>
               ) : (
-                <p className="dashboard_error">Lessons are not available for this course yet.</p>
+                <div className="continue_notice">
+                  <p>Lessons for this course are not available yet. Check back soon or explore another course.</p>
+                  <Link to="/courses" className="dashboard_button secondary_button">Browse courses <span aria-hidden="true">→</span></Link>
+                </div>
               )}
             </article>
           ) : !error ? (
