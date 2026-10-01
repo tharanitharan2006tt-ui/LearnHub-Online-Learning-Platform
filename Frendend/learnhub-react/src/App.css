@@ -96,9 +96,7 @@ body {
   overflow: hidden;
   margin-top: 60px;
   padding: 40px 6%;
-  background:
-    radial-gradient(ellipse at 15% 100%, rgba(203, 123, 215, 0.18), transparent 35%),
-    linear-gradient(115deg, #20213e, #30265a 58%, #3a285c);
+  background: #292738;
   color: white;
   text-align: center;
 }

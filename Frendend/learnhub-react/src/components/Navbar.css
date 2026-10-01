@@ -4,40 +4,39 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 6%;
-  background: linear-gradient(105deg, #4a347e, #644bc0 58%, #7350bd);
-  box-shadow: 0 5px 20px rgba(49, 37, 100, 0.15);
+  padding: 14px 6%;
+  border-bottom: 1px solid #eeecf2;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 3px 14px rgba(38, 33, 57, 0.035);
 }
 
 .navbar_logo a {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: white;
+  color: #302b3e;
   text-decoration: none;
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 23px;
+  font-weight: 750;
   letter-spacing: -0.6px;
 }
 
 .navbar_logo a::before {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 11px;
-  background: linear-gradient(145deg, #ffbd77, #ff7a9d);
-  box-shadow: 0 4px 12px rgba(37, 23, 92, 0.2);
-  color: #fff;
+  border-radius: 9px;
+  background: #efedf4;
+  color: #66588f;
   content: "✦";
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .nav_links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   flex-wrap: wrap;
 }
 
@@ -45,13 +44,13 @@
 .logout_button {
   display: inline-flex;
   align-items: center;
-  min-height: 38px;
-  padding: 0 13px;
-  border-radius: 10px;
-  color: white;
+  min-height: 37px;
+  padding: 0 12px;
+  border-radius: 9px;
+  color: #656273;
   text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 550;
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
   background: none;
   border: none;
@@ -61,33 +60,33 @@
 .nav_links a:hover,
 .logout_button:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.16);
-  color: #fff3bd;
+  background: #f3f1f7;
+  color: #5c4f7d;
 }
 
 .nav_links a:focus-visible,
 .logout_button:focus-visible,
 .navbar_logo a:focus-visible {
-  outline: 2px solid #ffe49b;
+  outline: 2px solid #8b7daf;
   outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 11px;
-    padding: 15px 18px;
+    gap: 10px;
+    padding: 13px 18px;
   }
 
   .nav_links {
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
   }
 
   .nav_links a,
   .logout_button {
-    min-height: 35px;
-    padding: 0 10px;
+    min-height: 34px;
+    padding: 0 9px;
     font-size: 13px;
   }
 }
