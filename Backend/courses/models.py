@@ -6,6 +6,7 @@ class Course(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField()
     intro = models.TextField()
+    image_url = models.URLField(blank=True, default="")
     rating = models.DecimalField(
         max_digits=3,
         decimal_places=1,

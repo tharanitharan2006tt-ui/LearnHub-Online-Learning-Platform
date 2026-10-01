@@ -11,6 +11,7 @@ class CourseSerializer(serializers.ModelSerializer):
             'slug',
             'description',
             'intro',
+            'image_url',
             'rating',
             'students',
             'lessons',

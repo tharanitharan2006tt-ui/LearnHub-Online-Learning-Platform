@@ -58,6 +58,7 @@ export default function Courses() {
               title={course.title}
               description={course.description || course.intro}
               price={course.price}
+              imageUrl={course.image_url}
             />
           ))}
         </div>

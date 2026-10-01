@@ -46,6 +46,7 @@ export default function Home() {
               title={course.title}
               description={course.description || course.intro}
               price={course.price}
+              imageUrl={course.image_url}
             />
           ))}
           {!error && courses.length === 0 && <p className="home_courses_empty">Courses will be available soon.</p>}

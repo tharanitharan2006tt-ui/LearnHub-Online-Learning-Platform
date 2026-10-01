@@ -76,9 +76,12 @@ export default function CourseDetails() {
     ? course.topics
     : (course.topics || "").split(/\r?\n/).filter(Boolean);
 
+  const courseImage = course.image_url || "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80";
+
   return (
     <section className="course_details">
       <div className="course_details_container">
+        <img src={courseImage} alt={course.title} className="course_details_image" />
         <h1>{course.title}</h1>
         <p className="course_intro">{course.intro || course.description}</p>
         <div className="course_info">
