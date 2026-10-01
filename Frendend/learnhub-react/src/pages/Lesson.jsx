@@ -95,6 +95,9 @@ export default function Lesson() {
   const lesson = routeLessonId
     ? lessons.find((item) => String(item.id) === routeLessonId)
     : lessons[0];
+  const nextLesson = lesson
+    ? lessons.find((item) => Number(item.order) > Number(lesson.order))
+    : null;
 
   const handleComplete = async () => {
     if (!lesson) return;
@@ -182,10 +185,22 @@ export default function Lesson() {
             </div>
           )}
 
-          {completed && lesson.quiz_id && (
-            <Link to={`/quiz/${lesson.quiz_id}`} className="next_button">
-              Take Quiz →
-            </Link>
+          {completed && (
+            <div className="lesson_navigation">
+              {nextLesson ? (
+                <Link to={`/lesson/${courseSlug}/${nextLesson.id}`} className="next_button">
+                  Next Lesson: {nextLesson.title} <span aria-hidden="true">→</span>
+                </Link>
+              ) : lesson.quiz_id ? (
+                <Link to={`/quiz/${lesson.quiz_id}`} className="next_button">
+                  Take Course Quiz <span aria-hidden="true">→</span>
+                </Link>
+              ) : (
+                <Link to="/my-learning" className="next_button">
+                  Back to My Learning <span aria-hidden="true">→</span>
+                </Link>
+              )}
+            </div>
           )}
         </div>
       </div>

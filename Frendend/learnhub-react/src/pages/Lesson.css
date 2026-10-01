@@ -180,21 +180,40 @@
 /* Next Lesson Button */
 
 .next_button {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-top: 20px;
-  padding: 12px 25px;
+  padding: 11px 20px;
   border: none;
-  border-radius: 7px;
-  background-color: #1e293b;
+  border-radius: 8px;
+  background-color: #5d5376;
   color: white;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
   cursor: pointer;
-  transition: 0.3s;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
 .next_button:hover {
-  background-color: #0f172a;
-  transform: translateY(-2px);
+  background-color: #4b4263;
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(65, 56, 88, 0.18);
+}
+
+.lesson_navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lesson_navigation .next_button {
+  max-width: 100%;
 }
 
 /* Mobile */
